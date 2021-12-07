@@ -1,0 +1,74 @@
+def dividir(op1, op2 = 2):
+    c = op1 / op2
+    return c
+print(dividir(25))
+
+help(print)
+
+nombre = "jose"
+edad = 18
+print(nombre,edad, sep=':)')
+print("hola",end=" ")
+print("-----------")
+
+def comanda(comensal = 1,primer = "consome",segundo = "arroz rojo", tercero = "Enchiladas"):
+    print(f"El comensal{comensal} quiere: ")
+    print("\t Entrada: ",primer)
+    print("\t Medio: ",segundo)
+    print("\t Plato fuerte: ",tercero)
+comanda()
+
+comanda(3,"ensalda","arroz blanco","Esparragos al horno")
+comanda("arroz blanco","Esparragos al horno","ensalda",3)
+comanda(segundo="arroz blanco",tercero = "Esparragos al horno",primer= "ensalda",comensal = 3)
+
+def comanda2(*opciones):
+    print(f"El comensal {opciones[0]} pidio")
+
+    print("\t Entrada:",opciones[1])
+    print("\t segundo:",opciones[2])
+    print("\t Plato fuerte:",opciones[3])
+    print("Indicaciones extra:")
+    for instrucción in opciones[4::]:
+         print("\t",instrucción)
+comanda2(1, "Sopa de fideos", "arroz", "Arrachera","La arrachera que aún se mueva","Postre unas gelatinas")
+
+def comanda3(**opciones):
+    ops = opciones.keys()
+    print(ops)
+    for key in ops:
+        print(f"{key} = {opciones[key]}")
+
+
+comanda3(segundo="arroz blanco",tercero="Esparragos al horno",primer="Ensalada",comensal=3)
+
+!pip install simple_chalk
+
+from simple_chalk import chalk, yellow
+print(chalk.yellow("Hola en amarillo"))
+
+def sumar(a,b):
+    return a + b
+
+def mi_print(texto, final):
+    print("Super:",texto, end = final)
+
+
+!cat Mi_modulo.py
+
+import Mi_modulo
+
+res = Mi_modulo.sumar (7,5)
+print(res)
+
+Mi_modulo.mi_print("Jesus","\n")
+from Mi_modulo import sumar, mi_print
+res = sumar (5,3 )
+print(res)
+mi_print("Jesus","\n")
+
+archivo = open("salida.txt","wt")
+archivo.write("Hola mundo")
+archivo.close()
+
+!cat salida.txt
